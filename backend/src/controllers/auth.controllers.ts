@@ -121,7 +121,7 @@ export const Login = async (req: Request, res: Response) => {
 
 // Add these new functions
 
-export const Logout = async (req: Request, res: Response) => {
+export const Logout = async (_req: Request, res: Response) => {
   try {
     // Clear the auth cookie with the correct name
     res.clearCookie("authToken", {
@@ -138,30 +138,15 @@ export const Logout = async (req: Request, res: Response) => {
   }
 }
 
-export const getAllUsers = async (req: Request, res: Response) => {
+export const getAllUsers = async (_req: Request, res: Response) => {
   try {
-    const users = await prisma.user.findMany({
-      include: {
-        Cart: {
-          include: {
-            items: true,
-          },
-        },
-      },
-    });
+    const users = await prisma.user.findMany();
 
-    // Map to flatten cartItems for frontend use
-    const usersWithCartItems = users.map((user: any) => ({
-  ...user,
-  cartItems: user.Cart[0]?.items || [],
-  Cart: undefined,
-}));
-
-
-    return Send.success(res, { users: usersWithCartItems });
+    return Send.success(res, { users });
   } catch (error) {
     console.error(error);
-    return Send.error(res, null, "Failed to fetch users with cart items");
+    return Send.error(res, null, "Failed to fetch users");
   }
 };
+
 
