@@ -1,0 +1,78 @@
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body{
+  font-family: monospace;
+}
+
+.container{
+  width: 90vw;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.auth{
+  background-color: #faf2e8;
+  height: 100vh;
+}
+.input-field {
+  @apply w-full px-4 py-2 rounded-md border border-gray-300 outline-none focus:ring-2 focus:ring-[#455CE9] text-gray-800 text-[15px] bg-white;
+}
+
+/* Add this to your existing CSS file */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #01945e;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/autoplay";
+
+
+
+/* Add this to your CSS file or global styles */
+.swiper-pagination-bullet {
+  opacity: 1;
+  background: #e5e7eb;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fdba74;
+}
+
+/* Hide default Swiper navigation arrows */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
+
+
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20%); }
+}
+
+.auto-scroll {
+  animation: scrollUp 40s linear infinite;
+}
