@@ -3,7 +3,6 @@ import prisma from "../db/prisma"
 import bcrypt from "bcryptjs"
 import accessToken from "../utils/generateToken"
 import Send from "../utils/response"
-import type { User } from "@prisma/client";
 export const Signup = async (req: Request, res: Response) => {
   try {
     const { name, email, password, gender } = req.body
