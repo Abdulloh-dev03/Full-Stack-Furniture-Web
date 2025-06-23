@@ -151,11 +151,12 @@ export const getAllUsers = async (req: Request, res: Response) => {
     });
 
     // Map to flatten cartItems for frontend use
-    const usersWithCartItems = users.map((user: User & { Cart: any[] }) => ({
+    const usersWithCartItems = users.map((user: any) => ({
   ...user,
   cartItems: user.Cart[0]?.items || [],
   Cart: undefined,
 }));
+
 
     return Send.success(res, { users: usersWithCartItems });
   } catch (error) {
