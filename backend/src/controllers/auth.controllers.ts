@@ -3,7 +3,7 @@ import prisma from "../db/prisma"
 import bcrypt from "bcryptjs"
 import accessToken from "../utils/generateToken"
 import Send from "../utils/response"
-
+import type { User } from "@prisma/client";
 export const Signup = async (req: Request, res: Response) => {
   try {
     const { name, email, password, gender } = req.body
@@ -151,11 +151,11 @@ export const getAllUsers = async (req: Request, res: Response) => {
     });
 
     // Map to flatten cartItems for frontend use
-    const usersWithCartItems = users.map(user => ({
-      ...user,
-      cartItems: user.Cart[0].items || [],
-      Cart: undefined,
-    }));
+    const usersWithCartItems = users.map((user: User & { Cart: any[] }) => ({
+  ...user,
+  cartItems: user.Cart[0]?.items || [],
+  Cart: undefined,
+}));
 
     return Send.success(res, { users: usersWithCartItems });
   } catch (error) {
