@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "main": "server.js",
     "scripts": {
-        "dev" :"nodemon ./backend/src/server.ts",
+        "dev": "nodemon ./backend/src/server.ts",
         "build": "npx prisma generate --schema=./backend/prisma/schema.prisma && tsc",
         "start": "node dist/src/server.js"
     },
