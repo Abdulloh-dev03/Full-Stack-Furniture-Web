@@ -40,3 +40,6 @@ app.listen(PORT, () => {
   console.log(`🚀 Server is running on Port ${PORT}`);
 });
 
+app.get("/", (req, res) => {
+  res.send("🚀 Full-Stack Furniture Store Backend is running!");
+});
