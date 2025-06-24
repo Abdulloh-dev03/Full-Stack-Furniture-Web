@@ -6,7 +6,8 @@ import { fetchRooms } from "../../redux/rooms/roomSlice"
 import { fetchProducts } from "../../redux/product/productSlice"
 import { motion, useAnimation } from "framer-motion"
 import Image from "next/image"
-
+import { Spin } from "antd"
+import { LoadingOutlined } from "@ant-design/icons"
 const CenteredBentoGrid = () => {
   const dispatch = useAppDispatch()
   const { rooms } = useAppSelector((state) => state.room)
@@ -56,9 +57,13 @@ const CenteredBentoGrid = () => {
     if (bentoGroups.length > 0) animateScroll()
   }, [bentoGroups, controls])
 
-  if (bentoGroups.length === 0) {
-    return <div className="text-center p-10 text-lg font-semibold">Loading or not enough images</div>
-  }
+ if (bentoGroups.length === 0) {
+  return (
+    <div className="flex justify-center items-center h-[500px]">
+      <Spin indicator={<LoadingOutlined spin />} size="large" />
+    </div>
+  )
+}
 
   return (
     <div>

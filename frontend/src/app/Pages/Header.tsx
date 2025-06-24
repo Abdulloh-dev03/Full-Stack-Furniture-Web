@@ -29,16 +29,26 @@ export const Main = () => {
     router.push(`/products/${id}`) // ✅ updated route
   }
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-[500px]">
-        <Spin indicator={<LoadingOutlined spin />} size="large" />
-      </div>
-    )
-  }
+if (loading) {
+  return (
+    <div className="flex justify-center items-center h-[500px]">
+      <Spin indicator={<LoadingOutlined spin />} size="large" />
+    </div>
+  );
+}
 
-  if (error) return <p className="text-center mt-10 text-red-600">Error: {error}</p>
-  if (!products || products.length === 0) return <p className="text-center mt-10">No items found.</p>
+if (error) {
+  return <p className="text-center mt-10 text-red-600">Error loading products: {error}</p>;
+}
+
+if (!products) {
+  return <p className="text-center mt-10">Loading or no data yet...</p>;
+}
+
+if (products.length === 0) {
+  return <p className="text-center mt-10">No items found.</p>;
+}
+
 
   return (
     <div className="relative max-w-7xl mx-auto my-10 h-[600px] max-md:h-[300px]">

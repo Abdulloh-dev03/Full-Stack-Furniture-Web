@@ -28,16 +28,26 @@ export const Products = () => {
       currency: "USD",
     }).format(value)
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-[500px]">
-        <Spin indicator={<LoadingOutlined spin />} size="large" />
-      </div>
-    )
-  }
+ if (loading) {
+  return (
+    <div className="flex justify-center items-center h-[500px]">
+      <Spin indicator={<LoadingOutlined spin />} size="large" />
+    </div>
+  )
+}
 
-  if (error) return <p className="text-center mt-10 text-red-600">Error: {error}</p>
-  if (!products || products.length === 0) return <p className="text-center mt-10">No items found.</p>
+if (error) {
+  return <p className="text-center mt-10 text-red-600">Error: {error}</p>
+}
+
+if (!products) {
+  return <p className="text-center mt-10">Loading or data not ready...</p>
+}
+
+if (products.length === 0) {
+  return <p className="text-center mt-10">No items found.</p>
+}
+
 
   const slicedProducts = products.slice(0, visibleCount)
 
