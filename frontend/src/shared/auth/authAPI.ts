@@ -1,7 +1,7 @@
 import axios from "axios"
 import type { LoginPayload, SignupPayload } from "./authTypes"
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL
 
 // Configure axios with token from localStorage
 const configureAxios = () => {
