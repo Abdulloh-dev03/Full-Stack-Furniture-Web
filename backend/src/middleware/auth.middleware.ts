@@ -14,7 +14,9 @@ declare global {
 
 // ✅ isAuthenticated Middleware
 export const isAuthenticated = (req: Request, res: Response, next: NextFunction): void => {
-  const token = req.cookies.authToken
+  const token =
+    req.cookies.authToken ||
+    req.headers.authorization?.split(" ")[1]
 
   if (!token) {
     Send.unauthorized(res, null, "You must be logged in")
@@ -36,6 +38,7 @@ export const isAuthenticated = (req: Request, res: Response, next: NextFunction)
     Send.unauthorized(res, null, "Invalid or expired token")
   }
 }
+
 
 // ✅ isAdmin Middleware
 export const isAdmin = (req: Request, res: Response, next: NextFunction): void => {
