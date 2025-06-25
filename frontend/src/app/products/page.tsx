@@ -108,7 +108,7 @@ const ProductCard = ({ product, formatUSD }: ProductCardProps) => {
         }),
       ).unwrap()
 
-      message.success("Item added to cart!")
+      message.success("Product added to cart!")
     } catch (error) {
       console.error("Failed to add item to cart:", error)
       message.error("Failed to add item to cart. Please try again.")
