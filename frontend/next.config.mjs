@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   images: {
-    // Remove `domains` and use remotePatterns instead
     remotePatterns: [
       {
         protocol: "https",
@@ -16,7 +16,7 @@ const nextConfig = {
         pathname: "/api/**",
       },
     ],
-    dangerouslyAllowSVG: true, // enable SVG loading for remote images
+    dangerouslyAllowSVG: true,
   },
 };
 
