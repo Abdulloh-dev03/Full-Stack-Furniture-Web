@@ -1,9 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/[^.]+", 
-      "destination": "/", 
-      "status": 200
+      "source": "/((?!api|_next|_static|favicon.ico|products|rooms).*)",
+      "destination": "/"
     }
   ]
 }
