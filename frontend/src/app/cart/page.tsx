@@ -8,6 +8,7 @@ import { Minus, Plus, Trash, Loader2 } from "lucide-react"
 import { message } from "antd"
 import RoundedButton from "../common/RoundedButton/RoundedButton"
 import Image from "next/image"
+import Link from "next/link"
 
 const Cart = () => {
   const dispatch = useAppDispatch()
@@ -89,9 +90,18 @@ const Cart = () => {
     )
   }
 
-  if (!userId) {
-    return <div className="p-10 text-center text-red-500">Please log in to view your cart.</div>
-  }
+if (!userId) {
+  return (
+    <div className="p-10 text-center">
+      <div className="text-red-500 mb-4">Please log in to view your cart.</div>
+      <Link href="/login">
+        <RoundedButton className="bg-black px-2 py-2 text-white">
+          Go to Login
+        </RoundedButton>
+      </Link>
+    </div>
+  )
+}
 
   if (loading) {
     return (
