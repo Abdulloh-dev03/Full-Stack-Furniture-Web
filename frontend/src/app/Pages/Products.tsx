@@ -58,7 +58,7 @@ if (products.length === 0) {
           Our Products
         </h2>
 
-        <div className="grid grid-cols-3 gap-10 max-md:grid-cols-1 max-xl:grid-cols-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 justify-items-center">
           {slicedProducts.map((product) => (
             <ProductCard
               key={product.id}

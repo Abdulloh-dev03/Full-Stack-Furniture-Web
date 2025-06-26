@@ -142,7 +142,7 @@ export default function RoomsCollection() {
           <h2 className="text-3xl lg:text-4xl font-mono text-gray-800">Rooms Collection</h2>
         </div>
 
-        <div className="px-10 grid gap-14 max-sm:grid-cols-1 max-md:grid-cols-1 max-md:gap-6 grid-cols-3 max-xl:grid-cols-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 justify-items-center">
           {rooms.map((room) => (
             <RoomCard
               key={room.id}

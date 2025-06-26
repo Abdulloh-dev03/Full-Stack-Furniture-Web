@@ -50,7 +50,7 @@ export default function MoreProducts() {
           <h2 className="text-3xl lg:text-4xl font-mono text-gray-800">All Products</h2>
         </div>
 
-        <div className="px-10 grid grid-cols-3 gap-14 max-sm:grid-cols-1 max-md:grid-cols-1 max-xl:grid-cols-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 justify-items-center">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} formatUSD={formatUSD} />
           ))}
