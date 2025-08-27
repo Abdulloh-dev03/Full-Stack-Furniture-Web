@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css"
 import LayoutWithConditionalUI from "./layout/ConditionalUI"
 
@@ -23,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-mono antialiased`}>
         <LayoutWithConditionalUI>{children}</LayoutWithConditionalUI>
+         <SpeedInsights />
       </body>
     </html>
   )
